@@ -26,8 +26,13 @@ float InsertLoop(string kwota)
 
 int main()
 {
+    string kwota;
     float wynagrodzenia[] = {};
 
+    for(int i=0; true; i++)
+    {
+        wynagrodzenia[i] = InsertLoop(kwota);
+    }
 
     return 0;
 }
