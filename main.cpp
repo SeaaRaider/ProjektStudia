@@ -1,37 +1,37 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
-float InsertLoop(string kwota)
+float InsertNumberLoop()
 {
+    float number = 0;
+
     cout << "Wprowadz kwote potwierdzajac ENTER \n";
     while(true)
     {
-        cin >> kwota;
-        //getline(cin, kwota);
-        if(kwota.empty())
+        cin >> number;
+        //getline(cin, number);
+        if(isnan(number))
         {
             break;
+            
         }
-        else if(kwota.empty() == false)
+        else if(!isnan(number))
         {
-            return stof(kwota);
-        }
-        else
-        {
-            cout << "Error \n";
+            return number;
         }
     }
 }
 
 int main()
 {
-    string kwota;
-    float wynagrodzenia[] = {};
+    string number;
+    float wynagrodzenia[100] = {};
 
     for(int i=0; true; i++)
     {
-        wynagrodzenia[i] = InsertLoop(kwota);
+        cout << InsertNumberLoop();
     }
 
     return 0;
