@@ -3,36 +3,76 @@
 
 using namespace std;
 
-float InsertNumberLoop()
+void Insert(float arr[])
 {
-    float number = 0;
+    float liczba = 0;
 
-    cout << "Wprowadz kwote potwierdzajac ENTER \n";
-    while(true)
+    cout << "Wpisz dane i potwierdz klikajac ENTER \n";
+
+    for(int i = 0; true; i++)
     {
-        cin >> number;
-        //getline(cin, number);
-        if(isnan(number))
-        {
+        cin >> liczba;
+
+        if(isnan(liczba))
             break;
-            
-        }
-        else if(!isnan(number))
+        else
         {
-            return number;
+            arr[i] = liczba;
+            cout << "Aby zakonczyc wpisywanie kliknij ENTER \n";
         }
     }
 }
 
 int main()
 {
-    string number;
-    float wynagrodzenia[100] = {};
+    float tabela[10] = {};
+    int menu = 0;
 
-    for(int i=0; true; i++)
+    cout << "---MENU WYBORU--- \n \n";
+    cout << "[1] Wprowadz dane \n";
+    cout << "[2] Edytuj dane \n";
+    cout << "[3] Wyswietl dane \n";
+    cout << "[4] Oblicz srednia\n";
+    cout << "[5] Wyszukaj z przedzialu min/max \n";
+    cout << "[6] EXIT \n";
+    
+    while(true)
     {
-        cout << InsertNumberLoop();
-    }
+        cin >> menu;
 
-    return 0;
+        // if(!isnan(menu))
+        // {
+            switch(menu)
+            {
+                case 1:
+                    Insert(tabela);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    for(int i = 0; sizeof(tabela) > i; i++)
+                    {
+                        cout << tabela[i] << " ";
+                    }
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    return 0;
+                    break;
+                default:
+                    cout << "Wybierz poprawna cyfre \n";
+                    break;
+            }
+        // }
+        // else if(isnan(menu))
+        // {
+        // cout << "To nie liczba";
+        // }
+
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 }
